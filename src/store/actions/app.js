@@ -4,7 +4,7 @@
  * @Last Modified by:   焦质晔
  * @Last Modified time: 2019-06-20 15:45:00
  */
-import wx from '@config/wx';
+import Taro from '@tarojs/taro';
 import { GET_AUTH } from '../types';
 import { getUserInfo } from '@api/wechat';
 import { doLogin, requstUserInfo } from '@api';
@@ -40,10 +40,10 @@ export const createAuthLogin = () => async (dispatch, getState) => {
  * @param {*} payload
  */
 export const createUserInfo = () => async (dispatch, getState) => {
-  let __user__ = wx.getStorageSync('userinfo');
+  let __user__ = Taro.getStorageSync('userinfo');
   if (!__user__) {
     console.log('请进行授权登录！');
-    wx.navigateTo({ url: '/pages/auth/index' });
+    Taro.navigateTo({ url: '/pages/auth/index' });
   } else {
     dispatch({
       type: GET_AUTH,

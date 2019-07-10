@@ -7,7 +7,6 @@ import { bindActionCreators } from 'redux';
 import actionCreators from '@store/actions';
 
 import util from '@utils';
-import wx from '@config/wx';
 
 import css from './index.module.scss';
 
@@ -25,7 +24,7 @@ class Auth extends Component {
   authHandler = async () => {
     await this.props.actions.createAuthLogin();
     await util.sleep(2000);
-    wx.navigateBack({ delta: 1 });
+    Taro.navigateBack({ delta: 1 });
   };
 
   render() {

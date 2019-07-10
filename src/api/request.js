@@ -4,7 +4,8 @@
  * @Last Modified by:   焦质晔
  * @Last Modified time: 2019-06-20 15:45:00
  */
-import wx from '@config/wx';
+import Taro from '@tarojs/taro';
+// Fly 动态引包，要用 require 方法
 import Fly from 'flyio/dist/npm/wx';
 import config from '@config';
 import util from '@utils';
@@ -19,21 +20,21 @@ fly.config.baseURL = config.host;
 fly.interceptors.request.use(request => {
   // 添加自定义 header
   request.headers['X-Token'] = 'token_info';
-  wx.showLoading({ title: '加载中...' });
+  Taro.showLoading({ title: '加载中...' });
   return request;
 });
 
 // 添加响应拦截器
 fly.interceptors.response.use(
   response => {
-    wx.hideLoading();
+    Taro.hideLoading();
     if (response.data.code === 0) {
       util.showModel('信息提示', response.data.message);
     }
     return response.data;
   },
   err => {
-    wx.hideLoading();
+    Taro.hideLoading();
     util.showModel('请求失败', err);
   }
 );

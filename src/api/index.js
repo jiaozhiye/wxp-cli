@@ -4,6 +4,7 @@
  * @Last Modified by:   焦质晔
  * @Last Modified time: 2019-06-20 15:45:00
  */
+import Taro from '@tarojs/taro';
 import request from './request';
 // 腾讯云客户端 SDK
 import qcloud from 'wafer2-client-sdk';
@@ -15,13 +16,13 @@ qcloud.setLoginUrl(config.loginUrl);
 // 执行请求登录
 export const doLogin = () =>
   new Promise((resolve, reject) => {
-    let __user__ = wx.getStorageSync('userinfo');
+    let __user__ = Taro.getStorageSync('userinfo');
     if (!__user__) {
       util.showBusy('正在登录');
       qcloud.login({
         success(res) {
           // 设置用户信息的本地存储
-          wx.setStorageSync('userinfo', res);
+          Taro.setStorageSync('userinfo', res);
           util.showSuccess('登录成功');
           resolve(res);
         },

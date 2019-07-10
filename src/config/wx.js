@@ -4,4 +4,4 @@
  * @Last Modified by:   焦质晔
  * @Last Modified time: 2019-06-20 15:45:00
  */
-export default wx;
+export default wx || {};

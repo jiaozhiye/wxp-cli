@@ -30,10 +30,10 @@ class Index extends Component {
   render() {
     return (
       <View>
-        <Text className={classnames(css.title)}>Hello world!</Text>
+        <Text className={classnames(['text', css.title])}>Hello world!</Text>
         <Demo />
         <AtButton type="primary" onClick={this.clickHandle}>
-          测试ajax请求
+          测试 ajax 请求
         </AtButton>
       </View>
     );

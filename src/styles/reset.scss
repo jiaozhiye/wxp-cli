@@ -2,10 +2,13 @@
 page,
 body {
   height: 100%;
+  background-color: $bgColor;
+}
+
+.text {
   font-size: $textSize;
   color: $textColor;
   line-height: 1.5;
-  background-color: $bgColor;
 }
 
 view,

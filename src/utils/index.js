@@ -4,11 +4,11 @@
  * @Last Modified by:   焦质晔
  * @Last Modified time: 2019-06-20 15:45:00
  */
-import wx from '@config/wx';
+import Taro from '@tarojs/taro';
 
 // 显示繁忙提示
 const showBusy = text =>
-  wx.showToast({
+  Taro.showToast({
     title: text,
     icon: 'loading',
     duration: 10000
@@ -16,15 +16,15 @@ const showBusy = text =>
 
 // 显示成功提示
 const showSuccess = text =>
-  wx.showToast({
+  Taro.showToast({
     title: text,
     icon: 'success'
   });
 
 // 显示失败提示
 const showModel = (title, content) => {
-  wx.hideToast();
-  wx.showModal({
+  Taro.hideToast();
+  Taro.showModal({
     title,
     content: typeof content === 'string' ? content : JSON.stringify(content),
     showCancel: false
