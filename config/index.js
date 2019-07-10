@@ -25,6 +25,10 @@ var config = {
         ]
       ],
       plugins: ['transform-decorators-legacy', 'transform-class-properties', 'transform-object-rest-spread']
+    },
+    sass: {
+      resource: path.resolve(__dirname, '..', 'src/styles/mixins.scss'),
+      projectDirectory: path.resolve(__dirname, '..')
     }
   },
   defineConstants: {},
@@ -33,9 +37,9 @@ var config = {
     '@assets': path.resolve(__dirname, '..', 'src/assets'),
     '@components': path.resolve(__dirname, '..', 'src/components'),
     '@config': path.resolve(__dirname, '..', 'src/config'),
+    '@styles': path.resolve(__dirname, '..', 'src/styles'),
     '@pages': path.resolve(__dirname, '..', 'src/pages'),
     '@store': path.resolve(__dirname, '..', 'src/store'),
-    '@styles': path.resolve(__dirname, '..', 'src/styles'),
     '@utils': path.resolve(__dirname, '..', 'src/utils')
   },
   copy: {

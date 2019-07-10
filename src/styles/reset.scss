@@ -1,6 +1,11 @@
 /* weapp */
-page {
+page,
+body {
   height: 100%;
+  font-size: $textSize;
+  color: $textColor;
+  line-height: 1.5;
+  background-color: $bgColor;
 }
 
 view,
@@ -23,4 +28,10 @@ div {
 
 button {
   outline: none;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

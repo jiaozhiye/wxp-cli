@@ -1,0 +1,60 @@
+/* ----------------- color ----------------- */
+// 主文本色
+$textColor: rgba(0, 0, 0, 0.65);
+
+// 次文本色
+$lightColor: rgba(0, 0, 0, 0.45);
+
+// 文本大小
+$textSize: 28px;
+
+// 主要色
+$primaryColor: #1890ff;
+
+// 边框色
+$borderColor: #e4e7ed;
+
+// 背景色
+$bgColor: #fff;
+
+/* ----------------- methods ----------------- */
+// 背景图片地址和大小
+@mixin bg($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+// 定位上下左右居中
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 定位上下居中
+@mixin ct {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// 定位左右居中
+@mixin cl {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// 宽高
+@mixin wh($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// 字体大小，颜色
+@mixin sc($size, $color) {
+  font-size: $size;
+  color: $color;
+}

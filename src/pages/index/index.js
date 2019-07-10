@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Text } from '@tarojs/components';
+import classnames from 'classnames';
 import { AtButton } from 'taro-ui';
 import { getInfo } from '@api';
 
@@ -29,7 +30,7 @@ class Index extends Component {
   render() {
     return (
       <View>
-        <Text>Hello world!</Text>
+        <Text className={classnames(css.title)}>Hello world!</Text>
         <Demo />
         <AtButton type="primary" onClick={this.clickHandle}>
           测试ajax请求
