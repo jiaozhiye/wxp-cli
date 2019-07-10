@@ -1,4 +1,4 @@
-const isH5 = process.env.CLIENT_ENV === 'h5';
+const isH5 = process.env.TARO_ENV === 'h5';
 const HOST = 'http://127.0.0.1:5757';
 
 module.exports = {
@@ -6,19 +6,19 @@ module.exports = {
     NODE_ENV: '"development"'
   },
   defineConstants: {
-    API_BASE_URL: isH5 ? JSON.stringify(HOST) : JSON.stringify(`${HOST}/weapp`),
+    API_BASE_URL: isH5 ? JSON.stringify(`${HOST}/h5`) : JSON.stringify(`${HOST}/weapp`)
   },
   weapp: {},
   h5: {
     devServer: {
       proxy: {
-        '/api/': {
+        '/h5/api/': {
           target: HOST,
           changeOrigin: true,
           pathRewrite: {
-            '^/api/': '/api/'
+            '^/h5/api/': '/api/'
           }
-        },
+        }
       }
     }
   }

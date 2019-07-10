@@ -1,11 +1,17 @@
+/**
+ * @Author: 焦质晔
+ * @Date: 2019/6/20
+ * @Last Modified by:   焦质晔
+ * @Last Modified time: 2019-06-20 15:45:00
+ */
 import Taro, { Component } from '@tarojs/taro';
-import '@tarojs/async-await'
+import '@tarojs/async-await';
 import { Provider } from '@tarojs/redux';
 import store from '@store';
 import Index from './pages/index';
 
+import '@styles/reset.scss';
 import 'taro-ui/dist/style/index.scss';
-
 import './app.scss';
 
 // 如果需要在 h5 环境中开启 React Devtools
@@ -40,7 +46,7 @@ class App extends Component {
       <Provider store={store}>
         <Index />
       </Provider>
-    )
+    );
   }
 }
 

@@ -1,10 +1,18 @@
+/**
+ * @Author: 焦质晔
+ * @Date: 2019/6/20
+ * @Last Modified by:   焦质晔
+ * @Last Modified time: 2019-06-20 15:45:00
+ */
 import request from './request';
+// 腾讯云客户端 SDK
 import qcloud from 'wafer2-client-sdk';
 import config from '@config';
 import util from '@utils';
+
 qcloud.setLoginUrl(config.loginUrl);
 
-// 执行登录
+// 执行请求登录
 export const doLogin = () =>
   new Promise((resolve, reject) => {
     let __user__ = wx.getStorageSync('userinfo');
@@ -12,12 +20,12 @@ export const doLogin = () =>
       util.showBusy('正在登录');
       qcloud.login({
         success(res) {
+          // 设置用户信息的本地存储
           wx.setStorageSync('userinfo', res);
           util.showSuccess('登录成功');
           resolve(res);
         },
         fail(error) {
-          console.log('request fail', error);
           util.showModel('登录错误', error);
           reject(error);
         }
@@ -39,7 +47,6 @@ export const requstUserInfo = () =>
         resolve(res.data);
       },
       fail(error) {
-        console.log('request fail', error);
         util.showModel('请求失败', error);
         reject(error);
       }

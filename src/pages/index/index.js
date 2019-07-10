@@ -1,7 +1,9 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Text } from '@tarojs/components';
 import { AtButton } from 'taro-ui';
-import utils from '@utils';
+
+import { getInfo } from '@api';
+
 import './index.scss';
 
 export default class Index extends Component {
@@ -11,11 +13,7 @@ export default class Index extends Component {
 
   componentWillMount() {}
 
-  componentDidMount = async () => {
-    console.log(12345)
-    await utils.sleep(2)
-    console.log(123456)
-  };
+  componentDidMount = async () => {};
 
   componentWillUnmount() {}
 
@@ -23,8 +21,8 @@ export default class Index extends Component {
 
   componentDidHide() {}
 
-  clickHandle = () => {
-    console.log(1234);
+  clickHandle = async () => {
+    const res = await getInfo();
   };
 
   render() {
@@ -32,7 +30,7 @@ export default class Index extends Component {
       <View className="index">
         <Text>Hello world!</Text>
         <AtButton type="primary" onClick={this.clickHandle}>
-          按钮文案
+          测试ajax请求
         </AtButton>
       </View>
     );

@@ -1,3 +1,9 @@
+/**
+ * @Author: 焦质晔
+ * @Date: 2019/6/20
+ * @Last Modified by:   焦质晔
+ * @Last Modified time: 2019-06-20 15:45:00
+ */
 import wx from '@config/wx';
 import Fly from 'flyio/dist/npm/wx';
 import config from '@config';
@@ -5,14 +11,14 @@ import util from '@utils';
 const fly = new Fly();
 
 // 设置超时
-fly.config.timeout = 5000;
+fly.config.timeout = 6000;
 // 设置请求基地址
 fly.config.baseURL = config.host;
-// 设置公共的 Get 参数
-// fly.config.params = { 'token': 'testtoken' } // 用于token认证
 
 // 添加请求拦截器
 fly.interceptors.request.use(request => {
+  // 添加自定义 header
+  request.headers['X-Token'] = 'token_info';
   wx.showLoading({ title: '加载中...' });
   return request;
 });
@@ -28,7 +34,6 @@ fly.interceptors.response.use(
   },
   err => {
     wx.hideLoading();
-    console.log(err);
     util.showModel('请求失败', err);
   }
 );

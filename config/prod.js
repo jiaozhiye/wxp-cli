@@ -1,4 +1,4 @@
-const isH5 = process.env.CLIENT_ENV === 'h5';
+const isH5 = process.env.TARO_ENV === 'h5';
 const HOST = 'https://mxn5uxea.qcloud.la';
 
 module.exports = {
@@ -6,7 +6,7 @@ module.exports = {
     NODE_ENV: '"production"'
   },
   defineConstants: {
-    API_BASE_URL: isH5 ? JSON.stringify(HOST) : JSON.stringify(`${HOST}/weapp`),
+    API_BASE_URL: isH5 ? JSON.stringify(`${HOST}/h5`) : JSON.stringify(`${HOST}/weapp`)
   },
   weapp: {},
   h5: {

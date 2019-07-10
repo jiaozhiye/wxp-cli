@@ -1,7 +1,13 @@
+/**
+ * @Author: 焦质晔
+ * @Date: 2019/6/20
+ * @Last Modified by:   焦质晔
+ * @Last Modified time: 2019-06-20 15:45:00
+ */
 import wx from '@config/wx';
 
 // 显示繁忙提示
-var showBusy = text =>
+const showBusy = text =>
   wx.showToast({
     title: text,
     icon: 'loading',
@@ -9,14 +15,14 @@ var showBusy = text =>
   });
 
 // 显示成功提示
-var showSuccess = text =>
+const showSuccess = text =>
   wx.showToast({
     title: text,
     icon: 'success'
   });
 
 // 显示失败提示
-var showModel = (title, content) => {
+const showModel = (title, content) => {
   wx.hideToast();
   wx.showModal({
     title,
@@ -27,9 +33,7 @@ var showModel = (title, content) => {
 
 // 延迟函数
 const sleep = async time => {
-  return new Promise((resolve, reject) => {
-    setTimeout(resolve, time * 1000);
-  });
+  return new Promise((resolve, reject) => setTimeout(resolve, time));
 };
 
 export default { showBusy, showSuccess, showModel, sleep };
