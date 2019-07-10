@@ -6,10 +6,10 @@ import { connect } from '@tarojs/redux';
 import { bindActionCreators } from 'redux';
 import actionCreators from '@store/actions';
 
-import css from './index.module.scss';
-
-import wx from '@config/wx';
 import util from '@utils';
+import wx from '@config/wx';
+
+import css from './index.module.scss';
 
 @connect(
   state => ({}),

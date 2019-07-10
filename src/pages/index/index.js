@@ -1,19 +1,20 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Text } from '@tarojs/components';
 import { AtButton } from 'taro-ui';
-
 import { getInfo } from '@api';
 
-import './index.scss';
+import Demo from '@components/Demo';
 
-export default class Index extends Component {
+import css from './index.module.scss';
+
+class Index extends Component {
   config = {
     navigationBarTitleText: '首页'
   };
 
   componentWillMount() {}
 
-  componentDidMount = async () => {};
+  componentDidMount() {}
 
   componentWillUnmount() {}
 
@@ -27,8 +28,9 @@ export default class Index extends Component {
 
   render() {
     return (
-      <View className="index">
+      <View>
         <Text>Hello world!</Text>
+        <Demo />
         <AtButton type="primary" onClick={this.clickHandle}>
           测试ajax请求
         </AtButton>
@@ -36,3 +38,5 @@ export default class Index extends Component {
     );
   }
 }
+
+export default Index;
